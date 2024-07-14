@@ -1,7 +1,11 @@
 function App() {
 
   return (
-    <h1>Curso Pratico React</h1>
+
+    <h1 className="text-3xl font-bold underline bg-cyan-400">
+      travel.com
+    </h1>
+
   )
 }
 
