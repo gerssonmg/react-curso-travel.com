@@ -1,5 +1,5 @@
 import { ArrowRight, AtSign, Calendar, MapPin, Plus, Settings2, UserRoundPlus, X } from "lucide-react"
-import { useState } from "react"
+import { FormEvent, useState } from "react"
 
 function App() {
 
@@ -9,6 +9,37 @@ function App() {
   const [emailsListInvite, setEmailsListInvite] = useState<string[]>([
     "gerson@gmail.com"
   ])
+
+  function addNewEmailToInvite(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget)
+    const email = data.get('email')?.toString();
+
+    if (!email) {
+      return
+    }
+
+    if (emailsListInvite.includes(email)) {
+      alert(`E-mail:${email} já foi adicionado!`)
+      return
+    }
+
+    setEmailsListInvite(
+      [
+        ...emailsListInvite,
+        email
+      ]
+    )
+
+    event.currentTarget.reset()
+  }
+
+  function removeEmailFromInvite(emailToRemove: string) {
+    const newEmailsList = emailsListInvite.filter(email => email !== emailToRemove)
+    setEmailsListInvite(newEmailsList)
+  }
+
 
   return (
 
@@ -93,9 +124,7 @@ function App() {
 
       {
         showDialog &&
-        <div className="fixed inset-0 bg-black/60  flex items-center justify-center" onClick={
-          () => setShowDialog(false)
-        }>
+        <div className="fixed inset-0 bg-black/60  flex items-center justify-center" >
           <div className="w-[640px] rounded-xl py-5 px-6 shadow-shape bg-zinc-900 space-y-5">
 
             {/* SELECIONAR E "X" */}
@@ -105,7 +134,9 @@ function App() {
                   Selecionar convidados
                 </h2>
                 <button>
-                  <X className="size-5 text-zinc-400" />
+                  <X className="size-5 text-zinc-400" onClick={
+                    () => setShowDialog(false)
+                  } />
                 </button>
               </div>
 
@@ -120,7 +151,9 @@ function App() {
                   <div key={email} className="py-1.5 px-2.5 rounded-md bg-zinc-800 flex items-center gap-2">
                     <span className="text-zinc-300">{email}</span>
                     <button type="button">
-                      <X className="size-5 text-zinc-400" />
+                      <X className="size-5 text-zinc-400" onClick={() => {
+                        removeEmailFromInvite(email)
+                      }} />
                     </button>
                   </div>
                 )
@@ -129,10 +162,10 @@ function App() {
 
             <div className="w-full h-px bg-zinc-500" />
 
-            <form action="" className="p-2.5 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center gap-2">
+            <form onSubmit={addNewEmailToInvite} className="p-2.5 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center gap-2">
               <div className="px-2 flex items-center flex-1 gap-2">
                 <AtSign className="text-zinc-400 size-5" />
-                <input type="text" placeholder="Digite o email do convidade"
+                <input type="email" name="email" placeholder="Digite o email do convidade"
                   className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
                 />
               </div>
