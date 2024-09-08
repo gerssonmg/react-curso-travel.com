@@ -1,4 +1,9 @@
-# Curso pratico de React + TypeScript + Vite + Tailwindcss
+## Faz parte de um curso completo.
+Vejo o video de previa. Qualquer duvida, mande uma mensagem para mais informações
+Estou aguardando você no curso, caso ainda não embarcou nessa jornada.
+https://www.youtube.com/watch?v=_JIWu4PGvtc&ab_channel=G%C3%A9rson%C3%81guiar%7CDev
+
+### Curso pratico de React + TypeScript + Vite + Tailwindcss
 
 
 Meu Youtube: https://www.youtube.com/@dev.gersonaguiar
