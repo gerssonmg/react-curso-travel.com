@@ -1,3 +1,17 @@
+
+# Link do passo a passo, com os comandos usados: https://medium.com/@gersoncafilho/react-js-part-01-03-b4dce751e128
+
+<hr/>
+
+## Link do App online: https://react-curso-travel-com.vercel.app/
+
+<hr/>
+
+Link da minha plataforma com o curso: https://ga-bot-automacao.herospark.co/mentoria-desenvolvedor-de-software
+
+<hr/>
+
+
 ## Faz parte de um curso completo.
 Vejo o video de previa. Qualquer duvida, mande uma mensagem para mais informações
 Estou aguardando você no curso, caso ainda não embarcou nessa jornada.
